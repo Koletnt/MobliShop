@@ -1,0 +1,130 @@
+.nav-link{
+	color: #F1F1F1;
+	font-size: 20px;
+	text-transform: uppercase;
+}
+
+.onama{
+	text-align: justify;
+}
+
+.form-range{
+	padding: 18px 5px;
+}
+
+.overflow-auto{
+
+	height: 80vh;
+}
+
+/* width */
+.overflow-auto::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.overflow-auto::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+.overflow-auto::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+.overflow-auto::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: red;
+            opacity: 0.5;           
+}
+
+
+
+
+
+#ikone ul li{
+  display: inline-block;
+  padding: 10px;
+  list-style-type: none;
+}
+
+
+.glavni
+{
+    margin: 0 auto;
+    width: 70%;
+    
+}
+
+.slider-container {
+    overflow: hidden;
+    position: relative;
+   
+    width: 80%;
+    margin: 20px auto;
+}
+
+.slider-wrapper {
+    /* background-color: lightgrey; */
+    display: flex;
+   
+   
+    /* width: 300%; Tri puta širina prikazanih slika */
+}
+
+
+
+.img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.carousel-control-next-icon
+{
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230D6EFD'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.carousel-control-prev-icon
+{
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230D6EFD'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+}
+
+
+
+
+@media (min-width: 900px) {
+    .slide {
+        padding: 20px;
+        flex: 0 0 33.33%;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 900px) {
+    .slide {
+        padding: 20px;
+        flex: 0 0 50%;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 600px) {
+    .slide {
+        padding: 20px;
+        flex: 0 0 100%;
+        box-sizing: border-box;
+    }
+}
+
+input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 352px;
+}

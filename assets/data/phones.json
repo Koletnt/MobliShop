@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "brandId": 1,
+    "price": 2200,
+    "img": "assets/slike/apple-iphone-13-pro-max.jpg",
+    "name": "Iphone 13 Pro Max"
+  },
+  {
+    "id": 2,
+    "brandId": 1,
+    "price": 1800,
+    "img": "assets/slike/apple-iphone-13.jpg",
+    "name": "Iphone 13 Pro"
+  },
+  {
+    "id": 3,
+    "brandId": 1,
+    "price": 1200,
+    "img": "assets/slike/apple-iphone-12-pro.jpg",
+    "name": "Iphone 12 Pro Max"
+  },
+  {
+    "id": 4,
+    "brandId": 2,
+    "price": 350,
+    "img": "assets/slike/huawei-nova-5t.jpg",
+    "name": "Huawei Nova 5t"
+  },
+  {
+    "id": 5,
+    "brandId": 2,
+    "price": 450,
+    "img": "assets/slike/huawei-p40.jpg",
+    "name": "Huawei P40"
+  },
+  {
+    "id": 6,
+    "brandId": 2,
+    "price": 700,
+    "img": "assets/slike/huawei-p50-pro.jpg",
+    "name": "Huawei P50 Pro"
+  },
+  {
+    "id": 7,
+    "brandId": 3,
+    "price": 200,
+    "img": "assets/slike/realme-9-pro-plus.jpg",
+    "name": "Realme 9 Pro Plus"
+  },
+  {
+    "id": 8,
+    "brandId": 3,
+    "price": 250,
+    "img": "assets/slike/realme-c35.jpg",
+    "name": "Realme C35"
+  },
+  {
+    "id": 9,
+    "brandId": 3,
+    "price": 180,
+    "img": "assets/slike/realme-gt2.jpg",
+    "name": "Realme Gt2"
+  },
+  {
+    "id": 10,
+    "brandId": 4,
+    "price": 2500,
+    "img": "assets/slike/samsung-galaxy-note20-5g-pro.jpg",
+    "name": "Samsung Galaxy Note"
+  },
+  {
+    "id": 11,
+    "brandId": 4,
+    "price": 2800,
+    "img": "assets/slike/samsung-galaxy-s20-ultra-pro.jpg",
+    "name": "Samsung Galaxy S20 Ultra Pro"
+  },
+  {
+    "id": 12,
+    "brandId": 4,
+    "price": 2900,
+    "img": "assets/slike/samsung-galaxy-z-fold2-5g.jpg",
+    "name": "Samsung Galaxy Z Fold2-5g"
+  }
+]
