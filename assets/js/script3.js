@@ -1,98 +1,25 @@
+let phonesData = [];
+
 $(document).ready(function () {
-  $("#dugmeNavbar").on("click", function (e) {
+  loadPhones();
+  $("#dugmeNavbar").on("click", function () {
     $("#navbarSupportedContent").toggle(600);
   });
+});
 
-  var nizTelefona = [
-    {
-      proizvodjac: "Apple",
-      cena: 2200,
-      slika: "apple-iphone-13-pro-max.jpg",
-      opis: "Apple Iphone 13 Pro Max",
-    },
-    {
-      proizvodjac: "Apple",
-      cena: 1800,
-      slika: "apple-iphone-13.jpg",
-      opis: "Apple Iphone 13 Pro",
-    },
-    {
-      proizvodjac: "Apple",
-      cena: 1200,
-      slika: "apple-iphone-12-pro.jpg",
-      opis: "Apple Iphone 12 Pro Max",
-    },
-    {
-      proizvodjac: "Huawei",
-      cena: 350,
-      slika: "huawei-nova-5t.jpg",
-      opis: "Huawei Nova 5t",
-    },
-    {
-      proizvodjac: "Huawei",
-      cena: 450,
-      slika: "huawei-p40.jpg",
-      opis: "Huawei P40",
-    },
-    {
-      proizvodjac: "Huawei",
-      cena: 700,
-      slika: "huawei-p50-pro.jpg",
-      opis: "Huawei P50 Pro",
-    },
-    {
-      proizvodjac: "Realme",
-      cena: 200,
-      slika: "realme-9-pro-plus.jpg",
-      opis: "Realme 9 Pro Plus",
-    },
-    {
-      proizvodjac: "Realme",
-      cena: 250,
-      slika: "realme-c35.jpg",
-      opis: "Realme C35",
-    },
-    {
-      proizvodjac: "Realme",
-      cena: 180,
-      slika: "realme-gt2.jpg",
-      opis: "Realme Gt2",
-    },
-    {
-      proizvodjac: "Samsung",
-      cena: 2500,
-      slika: "samsung-galaxy-note20-5g-pro.jpg",
-      opis: "Samsung Galaxy Note",
-    },
-    {
-      proizvodjac: "Samsung",
-      cena: 2800,
-      slika: "samsung-galaxy-s20-ultra-pro.jpg",
-      opis: "Samsung Galaxy S20 Ultra Pro",
-    },
-    {
-      proizvodjac: "Samsung",
-      cena: 2900,
-      slika: "samsung-galaxy-z-fold2-5g.jpg",
-      opis: "Samsung Galaxy Z Fold2-5g",
-    },
-  ];
+const btn = document.getElementById("seeMoreBtn");
+const content = document.getElementById("moreText");
 
-  for (i = 0; i < nizTelefona.length; i++) {
-    Prikaz(nizTelefona[i]);
+btn.addEventListener("click", () => {
+  if (content.style.maxHeight) {
+    content.style.maxHeight = null;
+    btn.textContent = "See more...";
+  } else {
+    content.style.maxHeight = content.scrollHeight + "px";
+    btn.textContent = "See less";
   }
-
-  function Prikaz(el) {
-    var article = `<article class="slide">
-    <img class="img" src="assets/slike/${el.slika}" alt="Slika telefona">
-    <p class="text-muted">${el.opis}<br> Cena:<span class="text-danger">${el.cena}&euro;</span></p>
-  </article>
-        `;
-
-    //$(".slide").appendTo(".slider-wrapper");
-    //article.appendTo(".slider-wrapper");
-    $(".slider-wrapper").append(article);
-  }
+});
+  
 
   function prevSlide() {
     //alert($(window).width());
@@ -173,4 +100,38 @@ $(document).ready(function () {
     clearInterval(intervalId);
     intervalId = setInterval(prevSlide, 3000);
   }
-});
+
+
+function loadPhones() {
+    $.ajax({
+        url: "assets/data/phones.json",
+        method: "GET",
+        dataType: "json",
+        success: function (data) {
+            phonesData = data;
+            renderPhones();
+            
+        },
+        error: function (xhr) {
+            console.log(xhr);
+        }
+    });
+}
+
+function renderPhones(){
+
+    const container = $(".slider-wrapper");
+
+    container.empty();
+
+    phonesData.forEach(function(phone){
+
+      const card = `<article class="slide">
+    <img class="img" src="${phone.img}" alt="${phone.name}">
+    <p class="text-muted">${phone.name}<br> Cena:<span class="text-danger">${phone.price}&euro;</span></p>
+  </article>
+        `
+
+          container.append(card);
+    });
+}

@@ -151,12 +151,15 @@ select.addEventListener("change", Proizvodjac, false);
 
 let phonesData = [];
 let brandsData = [];
-let favoriteIds = [];
+/*let favoriteIds = [];*/
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 $(document).ready(function () {
     bindEvents();
     loadPhones();
     loadBrands();
+    renderCart();
 });
 
 function loadPhones() {
@@ -211,7 +214,71 @@ function bindEvents() {
     $("#sort").on("input", function () {
         renderPhones();
     });
+    $(document).on("click", ".add", function () {
+    const id = Number($(this).parent().data("id"));
 
+    cart.push({ id: id, qty: 1 });
+
+    saveCart();
+    renderPhones();
+});
+
+$(document).on("click", ".plus", function () {
+    const id = Number($(this).parent().data("id"));
+
+    const item = cart.find(p => p.id === id);
+    item.qty++;
+
+    saveCart();
+    renderPhones();
+});
+
+$(document).on("click", ".minus", function () {
+    const id = Number($(this).parent().data("id"));
+
+    let item = cart.find(p => p.id === id);
+
+    item.qty--;
+
+    if (item.qty <= 0) {
+        cart = cart.filter(p => p.id !== id);
+    }
+
+    saveCart();
+    renderPhones();
+});
+$("#showFavorites").on("change", function () {
+    const list = $("#favoritesList");
+    list.empty();
+
+    if (this.checked) {
+        favoriteIds.forEach(id => {
+            const phone = phonesData.find(p => p.id === id);
+
+            if (phone) {
+                list.append(`<li>${phone.name} - ${phone.price}€</li>`);
+            }
+        });
+    }
+});
+$("#checkoutBtn").on("click", function() {
+    if(cart.length === 0){
+        alert("Your cart is empty!");
+    } else {
+        let total = 0;
+        cart.forEach(item => {
+            const phone = phonesData.find(p => p.id === item.id);
+            if(phone){
+                total += phone.price * item.qty;
+            }
+        });
+        alert(`Total amount: ${total}€. Proceeding to checkout...`);
+        // Here you can redirect to a checkout page or trigger payment logic
+
+        cart = [];
+        saveCart();
+    }
+});
     
 }
 
@@ -227,13 +294,27 @@ function renderPhones(){
 
 
     phones.forEach(function(phone){
+      const item = cart.find(p => p.id === phone.id);
+      const qty = item ? item.qty : 0;
 
-      const card = `<article class="col-lg-4 col-sm-6 mb-4 justify-content-center d-flex">
-        <div class="w-75">
-				<img src="${phone.img}" alt="${phone.name}">
-				<p class="text-muted">${phone.name} <br> Cena:<span class="text-danger">${phone.price}&euro;</p>
-        </div>
-					</article>`
+      const card = `<article class="col-lg-4 col-md-6 col-sm-12 mb-4">
+  <div class="card h-100 text-center" id = "phoneimg">
+    <img src="${phone.img}" class="card-img-top" alt="${phone.name}">
+    <div class="card-body">
+      <h5 class="card-title">${phone.name}</h5>
+      <p class="card-text text-danger">${phone.price}€</p>
+      <div class="cart-controls" data-id="${phone.id}">
+        ${qty > 0 ? `
+          <button class="minus">-</button>
+          <span>${qty}</span>
+          <button class="plus">+</button>
+        ` : `
+          <button class="add">+</button>
+        `}
+      </div>
+    </div>
+  </div>
+</article>`;
 
           container.append(card);
     });
@@ -284,6 +365,42 @@ function sortPhones(p){
 }
 
 
-$("#remove").on("click",function(){
-    $("#searchInput").clear();
-})
+$("#remove").on("click", function() {
+
+    $("#brand").val("all");
+    $("#searchInput").val("");
+    $("#sort").val("svi");
+
+    renderPhones();
+});
+
+function saveCart(){
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
+}
+
+function renderCart(){
+    const list = $("#cartList");
+    const totalEl = $("#total");
+
+    list.empty();
+
+    let total = 0;
+
+    cart.forEach(item => {
+        const phone = phonesData.find(p => p.id === item.id);
+
+        if(phone){
+            const sum = phone.price * item.qty;
+            total += sum;
+
+            list.append(`
+                <li>
+                  ${phone.name} x ${item.qty} = ${sum}€
+                </li>
+            `);
+        }
+    });
+
+    totalEl.text(total);
+}
