@@ -15,7 +15,6 @@ $(document).ready(function () {
     var title = $("#title").val();
     var message = $("#message").val();
 
-    //Regex provere ulaza
     var nameSurnameRegex = /^[A-Z][a-z]{2,10}$/;
     if (!nameSurnameRegex.test(name)) {
       var i =
@@ -73,7 +72,6 @@ $(document).ready(function () {
   });
 
   $("#name").on("input", function () {
-    // Ovaj kod će se izvršiti svaki put kada korisnik unese tekst u polje
 
     var name = $("#name").val();
     var nameSurnameRegex = /^[A-Z][a-z]{2,10}$/;
@@ -83,7 +81,6 @@ $(document).ready(function () {
   });
 
   $("#surname").on("input", function () {
-    // Ovaj kod će se izvršiti svaki put kada korisnik unese tekst u polje
 
     var name = $("#surname").val();
     var nameSurnameRegex = /^[A-Z][a-z]{2,}$/;
@@ -93,7 +90,6 @@ $(document).ready(function () {
   });
 
   $("#mail").on("input", function () {
-    // Ovaj kod će se izvršiti svaki put kada korisnik unese tekst u polje
     var mail = $("#mail").val();
     var mailRegex = /^\w{4,}(@gmail.com|@yahoo.com|@hotmail.com)$/;
     if (mailRegex.test(mail)) {
@@ -102,7 +98,6 @@ $(document).ready(function () {
   });
 
   $("#phoneNumber").on("input", function () {
-    // Ovaj kod će se izvršiti svaki put kada korisnik unese tekst u polje
     var phoneNumber = $("#phoneNumber").val();
     var telefonRegex = /^(069|060|063|064|061)[\-]?\d{6,7}$/;
     if (telefonRegex.test(phoneNumber)) {
@@ -111,7 +106,6 @@ $(document).ready(function () {
   });
 
   $("#title").on("input", function () {
-    // Ovaj kod će se izvršiti svaki put kada korisnik unese tekst u polje
     var title = $("#title").val();
     var titleRegex = /^[A-Za-z ]{5,}$/;
     if (titleRegex.test(title)) {
@@ -120,7 +114,6 @@ $(document).ready(function () {
   });
 
   $("#message").on("input", function () {
-    // Ovaj kod će se izvršiti svaki put kada korisnik unese tekst u polje
     var message = $("#message").val();
     var messageRegex = /^.{10,}$/;
     if (messageRegex.test(message)) {

@@ -94,7 +94,7 @@ btn.addEventListener("click", () => {
 
   $(".next").on("click", prevSlide);
   $(".prev").on("click", nextSlide);
-  var intervalId = setInterval(prevSlide, 3000); // Promena slike svakih 3 sekunde
+  var intervalId = setInterval(prevSlide, 3000);
 
   function resetInterval() {
     clearInterval(intervalId);

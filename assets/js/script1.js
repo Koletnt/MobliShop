@@ -121,7 +121,6 @@ $("#checkoutBtn").on("click", function() {
             }
         });
         showToast(`Total amount: ${total}€. Proceeding to checkout...`);
-        // Here you can redirect to a checkout page or trigger payment logic
 
         cart = [];
         saveCart();
@@ -260,5 +259,5 @@ function showToast(message) {
     toast.className = "show";
     setTimeout(() => {
         toast.className = toast.className.replace("show", "");
-    }, 3000); // visible for 3 seconds
+    }, 3000);
 }
