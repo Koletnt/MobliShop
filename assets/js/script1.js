@@ -111,7 +111,7 @@ $("#showFavorites").on("change", function () {
 });
 $("#checkoutBtn").on("click", function() {
     if(cart.length === 0){
-        alert("Your cart is empty!");
+        showToast("Your cart is empty!");
     } else {
         let total = 0;
         cart.forEach(item => {
@@ -120,7 +120,7 @@ $("#checkoutBtn").on("click", function() {
                 total += phone.price * item.qty;
             }
         });
-        alert(`Total amount: ${total}€. Proceeding to checkout...`);
+        showToast(`Total amount: ${total}€. Proceeding to checkout...`);
         // Here you can redirect to a checkout page or trigger payment logic
 
         cart = [];
@@ -217,7 +217,7 @@ $("#remove").on("click", function() {
 
     $("#brand").val("all");
     $("#searchInput").val("");
-    $("#sort").val("svi");
+    $("#sort").val("all");
 
     renderPhones();
 });
@@ -251,4 +251,14 @@ function renderCart(){
     });
 
     totalEl.text(total);
+}
+
+
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.className = "show";
+    setTimeout(() => {
+        toast.className = toast.className.replace("show", "");
+    }, 3000); // visible for 3 seconds
 }

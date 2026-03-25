@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://mobilshopkm.000webhostapp.com/index.html</loc>
-        <lastmod>2023-12-9</lastmod>
+        <loc>https://koletnt.github.io/MobliShop/index.html</loc>
+        <lastmod>2026-3-25</lastmod>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
 
     <url>
-        <loc>https://mobilshopkm.000webhostapp.com/telefoni.html</loc>
-        <lastmod>2023-12-9</lastmod>
+        <loc>https://koletnt.github.io/MobliShop/telefoni.html</loc>
+        <lastmod>2026-3-25</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
 
     <url>
-        <loc>https://mobilshopkm.000webhostapp.com/kontakt.html</loc>
-        <lastmod>2023-12-9</lastmod>
+        <loc>https://koletnt.github.io/MobliShop/kontakt.html</loc>
+        <lastmod>2026-3-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
 
     <url>
-        <loc>https://mobilshopkm.000webhostapp.com/autor.html</loc>
-        <lastmod>2023-12-9</lastmod>
+        <loc>https://koletnt.github.io/MobliShop/autor.html</loc>
+        <lastmod>2026-3-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>

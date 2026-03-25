@@ -1,35 +1,32 @@
 $(document).ready(function () {
   $(".btn").on("click", function (e) {
-    // Dobijanje unosa korisnika
 
     e.preventDefault();
-    // Uklanjanje elemenata sa klasom "error"
     if ($(".error").length) {
       $(".error").remove();
     } else if ($(".suc").length) {
       $(".suc").remove();
     }
 
-    // Dobijanje vrednosti input polja
-    var ime = $("#ime").val();
-    var prezime = $("#prezime").val();
+    var name = $("#name").val();
+    var surname = $("#surname").val();
     var mail = $("#mail").val();
-    var brojTelefona = $("#brojTelefona").val();
-    var naslov = $("#naslov").val();
-    var poruka = $("#poruka").val();
+    var phoneNumber = $("#phoneNumber").val();
+    var title = $("#title").val();
+    var message = $("#message").val();
 
     //Regex provere ulaza
-    var imePrezimeRegex = /^[A-Z][a-z]{2,10}$/;
-    if (!imePrezimeRegex.test(ime)) {
+    var nameSurnameRegex = /^[A-Z][a-z]{2,10}$/;
+    if (!nameSurnameRegex.test(name)) {
       var i =
-        "<p class='text-danger error ime'>Ime mora da sadrži bar tri karaktera i da pocne velikim slovom!</p>";
-      $("#ime").after(i);
+        "<p class='text-danger error name'>Ime mora da sadrži bar tri karaktera i da pocne velikim slovom!</p>";
+      $("#name").after(i);
     }
 
-    if (!imePrezimeRegex.test(prezime)) {
+    if (!nameSurnameRegex.test(surname)) {
       var i =
-        "<p class='text-danger error prezime'>Prezime mora da sadrži bar tri karaktera i da pocne velikim slovom!</p>";
-      $("#prezime").after(i);
+        "<p class='text-danger error surname'>Prezime mora da sadrži bar tri karaktera i da pocne velikim slovom!</p>";
+      $("#surname").after(i);
     }
 
     //var emailRegex = /^\w{4,}@[a-zA-Z]+\.[a-zA-Z]{2,4}$/;
@@ -42,56 +39,56 @@ $(document).ready(function () {
     }
 
     var telefonRegex = /^(069|060|063|064|061)[\-]?\d{6,7}$/;
-    if (!telefonRegex.test(brojTelefona)) {
+    if (!telefonRegex.test(phoneNumber)) {
       var i =
-        "<p class='text-danger error brojTelefona'>Telefon nije unet u pravilnom formatu:060123456</p>";
-      $("#brojTelefona").after(i);
+        "<p class='text-danger error phoneNumber'>Telefon nije unet u pravilnom formatu:060123456</p>";
+      $("#phoneNumber").after(i);
     }
 
-    var naslovRegex = /^[A-Za-z ]{5,}$/;
-    if (!naslovRegex.test(naslov)) {
+    var titleRegex = /^[A-Za-z ]{5,}$/;
+    if (!titleRegex.test(title)) {
       var i =
-        "<p class='text-danger error naslov'>Naslov mora da ima barem 5 slova</p>";
-      $("#naslov").after(i);
+        "<p class='text-danger error title'>Naslov mora da ima barem 5 slova</p>";
+      $("#title").after(i);
     }
 
-    var porukaRegex = /^.{10,}$/;
-    if (!porukaRegex.test(poruka)) {
+    var messageRegex = /^.{10,}$/;
+    if (!messageRegex.test(message)) {
       var i =
-        "<p class='text-danger error poruka'>Poruka mora da ima barem 10 slova</p>";
-      $("#poruka").after(i);
+        "<p class='text-danger error message'>Poruka mora da ima barem 10 slova</p>";
+      $("#message").after(i);
     }
 
     if (!$(".error").length) {
       var i = `<p class='text-success suc'>Poruka je uspesno poslata!!!</p>`;
       $("#form").before(i);
 
-      $("#ime").val("");
-      $("#prezime").val("");
+      $("#name").val("");
+      $("#surname").val("");
       $("#mail").val("");
-      $("#brojTelefona").val("");
-      $("#naslov").val("");
-      $("#poruka").val("");
+      $("#phoneNumber").val("");
+      $("#title").val("");
+      $("#message").val("");
     }
   });
 
-  $("#ime").on("input", function () {
+  $("#name").on("input", function () {
     // Ovaj kod će se izvršiti svaki put kada korisnik unese tekst u polje
 
-    var ime = $("#ime").val();
-    var imePrezimeRegex = /^[A-Z][a-z]{2,10}$/;
-    if (imePrezimeRegex.test(ime)) {
-      $(".error.ime").remove();
+    var name = $("#name").val();
+    var nameSurnameRegex = /^[A-Z][a-z]{2,10}$/;
+    if (nameSurnameRegex.test(name)) {
+      $(".error.name").remove();
     }
   });
 
-  $("#prezime").on("input", function () {
+  $("#surname").on("input", function () {
     // Ovaj kod će se izvršiti svaki put kada korisnik unese tekst u polje
 
-    var ime = $("#prezime").val();
-    var imePrezimeRegex = /^[A-Z][a-z]{2,}$/;
-    if (imePrezimeRegex.test(ime)) {
-      $(".error.prezime").remove();
+    var name = $("#surname").val();
+    var nameSurnameRegex = /^[A-Z][a-z]{2,}$/;
+    if (nameSurnameRegex.test(name)) {
+      $(".error.surname").remove();
     }
   });
 
@@ -104,30 +101,30 @@ $(document).ready(function () {
     }
   });
 
-  $("#brojTelefona").on("input", function () {
+  $("#phoneNumber").on("input", function () {
     // Ovaj kod će se izvršiti svaki put kada korisnik unese tekst u polje
-    var brojTelefona = $("#brojTelefona").val();
+    var phoneNumber = $("#phoneNumber").val();
     var telefonRegex = /^(069|060|063|064|061)[\-]?\d{6,7}$/;
-    if (telefonRegex.test(brojTelefona)) {
-      $(".error.brojTelefona").remove();
+    if (telefonRegex.test(phoneNumber)) {
+      $(".error.phoneNumber").remove();
     }
   });
 
-  $("#naslov").on("input", function () {
+  $("#title").on("input", function () {
     // Ovaj kod će se izvršiti svaki put kada korisnik unese tekst u polje
-    var naslov = $("#naslov").val();
-    var naslovRegex = /^[A-Za-z ]{5,}$/;
-    if (naslovRegex.test(naslov)) {
-      $(".error.naslov").remove();
+    var title = $("#title").val();
+    var titleRegex = /^[A-Za-z ]{5,}$/;
+    if (titleRegex.test(title)) {
+      $(".error.title").remove();
     }
   });
 
-  $("#poruka").on("input", function () {
+  $("#message").on("input", function () {
     // Ovaj kod će se izvršiti svaki put kada korisnik unese tekst u polje
-    var poruka = $("#poruka").val();
-    var porukaRegex = /^.{10,}$/;
-    if (porukaRegex.test(poruka)) {
-      $(".error.poruka").remove();
+    var message = $("#message").val();
+    var messageRegex = /^.{10,}$/;
+    if (messageRegex.test(message)) {
+      $(".error.message").remove();
     }
   });
 });

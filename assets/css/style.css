@@ -83,7 +83,36 @@
    
     /* width: 300%; Tri puta širina prikazanih slika */
 }
+#toast {
+  visibility: hidden;
+  min-width: 250px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 16px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  font-size: 16px;
+}
 
+/* Show the toast */
+#toast.show {
+  visibility: visible;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s; /* fadein then fadeout after 2.5s */
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeout {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
 
 
 .img {
@@ -195,6 +224,8 @@
 
 #moreText {
   transition: all 0.4s ease;
+  font-size: 20px; /* Increase this value to make text bigger */
+  line-height: 1.6; /* Optional: improves readability */
 }
 
 #seeMoreBtn {

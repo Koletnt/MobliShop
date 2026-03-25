@@ -26,24 +26,27 @@
 	
 	
 			<div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-			  <ul class="navbar-nav ">
-				<li class="nav-item text-center">
-				  <a class="nav-link" href="index.html">O nama</a>
-				</li>
-				<li class="nav-item mx-lg-4 text-center">
-				  <a class="nav-link" href="telefoni.html">Telefoni</a>
-				</li>
-				<li class="nav-item mx-lg-4 text-center">
-				  <a class="nav-link" href="kontakt.html">Kontakt</a>
-				</li>
-				<li class="nav-item text-center">
-					<a class="nav-link" href="DOKUMENTACIJA.pdf">Dokumentacija</a>
-				</li>
-				<li class="nav-item text-center">
-					<a class="nav-link" href="autor.html">O autoru</a>
-				</li>
-			  
-			</div>
+  <ul class="navbar-nav">
+    <li class="nav-item mx-2">
+      <a class="nav-link text-center" href="index.html">O nama</a>
+    </li>
+    <li class="nav-item mx-2">
+      <a class="nav-link text-center" href="telefoni.html">Telefoni</a>
+    </li>
+    <li class="nav-item mx-2">
+      <a class="nav-link text-center" href="kontakt.html">Kontakt</a>
+    </li>
+    <li class="nav-item mx-2">
+      <a class="nav-link text-center" href="DOKUMENTACIJA.pdf">Dokumentacija</a>
+    </li>
+    <li class="nav-item mx-2">
+      <a class="nav-link text-center" href="autor.html">Autor</a>
+    </li>
+    <li class="nav-item mx-2">
+      <a class="nav-link text-center" href="MobilShop2.zip">Download</a>
+    </li>
+  </ul>
+</div>
 		  </div>
 		</nav>
 	<header class="my-3 mx-auto text-center text-primary border-bottom border-primary w-75"><h1 class="display-4 fw-bold">Mobil Shop</h1></header>
@@ -65,7 +68,7 @@
 						<br>
 						<h4>Sort by:</h4>
 						<select class="form-select" id="sort">
-							<option value="svi">--Svi--</option>
+							<option value="all">--All--</option>
 							<option value="price-asc">--price-Asc--</option>
 							<option value="price-desc">--price-Desc--</option>
 							<option value="name-asc">--name-Asc--</option>
@@ -79,32 +82,18 @@
 						<p>Total: <span id="total">0</span> €</p>
 						<ul id="favoritesList"></ul>
 					</div>
-					
-
-								    
-					<!--  
-			
-					<h4 class="cena">Cena:</h4>
-								
-					<div class="input-group">
-						<span class="input-group-text">100&euro;</span>
-						<input type="range" class="form-control form-range" name="points" min="100" max="3000" id="cena"  value=3000>
-						<span class="input-group-text" id="gornjaCena">3000&euro;</span>
-					</div>
-						-->	
+				
 					
 						
 					<div class="my-4"><button class="btn btn-danger" id="remove">Reset Filters</button> 
 						<button id="checkoutBtn" id="buy">Checkout</button></div>
 					<div class="my-4"></div>
 				</div>
-				
+				<div id="toast"></div>
 				
 			</section>
 			<section class="col-lg-8 pt-3" id="articles">
 				<div class="row" id="phones">
-					<!-- tu se dodaju telefoni -->
-
 					
 				</div>
 			
@@ -115,7 +104,7 @@
 
 	<footer class="bg-dark text-light text-center p-1">
 		<div id="copyright">
-    		<p class="my-2">Copyright © 2025 Mobil Shop</p>
+    		<p class="my-2">Copyright © 2026 Mobil Shop</p>
 		</div>
 		<div id="ikone">
 			<ul>
