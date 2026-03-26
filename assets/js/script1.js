@@ -145,23 +145,24 @@ function renderPhones(){
       const qty = item ? item.qty : 0;
 
       const card = `<article class="col-lg-4 col-md-6 col-sm-12 mb-4">
-  <div class="card h-100 text-center" id = "phoneimg">
-    <img src="${phone.img}" class="card-img-top" alt="${phone.name}">
-    <div class="card-body">
-      <h5 class="card-title">${phone.name}</h5>
-      <p class="card-text text-danger">${phone.price}€</p>
-      <div class="cart-controls" data-id="${phone.id}">
-        ${qty > 0 ? `
-          <button class="minus">-</button>
-          <span>${qty}</span>
-          <button class="plus">+</button>
-        ` : `
-          <button class="add">+</button>
-        `}
-      </div>
-    </div>
-  </div>
-</article>`;
+        <div class="card h-100 text-center" id = "phoneimg">
+
+            <img src="${phone.img}" class="card-img-top" alt="${phone.name}">
+            <div class="card-body">
+            <h5 class="card-title">${phone.name}</h5>
+            <p class="card-text text-danger">${phone.price}€</p>
+            <div class="cart-controls" data-id="${phone.id}">
+            ${qty > 0 ? `
+                <button class="minus">-</button>
+                <span>${qty}</span>
+                <button class="plus">+</button>
+                ` : `
+                <button class="add">+</button>
+            `}
+            </div>
+            </div>
+        </div>
+            </article>`;
 
           container.append(card);
     });
